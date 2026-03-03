@@ -5,3 +5,8 @@
 .httr-oauth
 .DS_Store
 .quarto
+data/raw/
+output/
+!output/figures/.gitkeep
+!output/tables/.gitkeep
+renv/library/
