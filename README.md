@@ -1,33 +1,121 @@
+EVEProject
+================
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+#### Global chunk options:
 
-# EVEProject
-
-<!-- badges: start -->
-<!-- badges: end -->
-
-The goal of EVEProject is to …
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+- collapse/comment for nice printing on GitHub
+- eval = FALSE so chunks are shown but not executed (safe if files don’t
+  exist yet)
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
+\#library(here) \# keep commented until needed
 
-You can also embed plots, for example:
+### **OVERVIEW**
 
-![](README_files/figure-gfm/pressure-1.png)<!-- -->
+EVEProject provides a reproducible pipeline for identifying, annotating,
+and analysing Endogenous Viral Elements (EVEs) across Drosophilidae
+genomes. It includes a Linux (bash) workflow for detectEVE, taxonomy,
+and phylogenetics, plus an R analysis scaffold and documentation.
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub.
+### **TADA at a glance**
+
+#### *Transferable*
+
+- RStudio Project with relative paths via here::here()
+- Reproducible packages pinned in renv.lock (use renv::restore())
+- Clear layout: data/, scripts/, output/, docs/
+
+#### *Available*
+
+- Public GitHub repository; optional DOI via Zenodo on release
+
+#### *Documented*
+
+- Short README here; detailed docs in docs/
+
+#### *Annotated*
+
+- Every script starts with What / Why / How / Output comments
+
+### **Quick start**
+
+1.  Open the RStudio Project (.Rproj)
+
+2.  Restore exact package versions:
+
+    renv::restore()
+
+3.  Put raw inputs in data/raw/ (see data/raw/README.txt)
+
+4.  Run the R analysis (when these files exist):
+
+    \#- source(here::here(“scripts”,“R”,“00_setup.R”))
+
+    \#- source(“scripts/R/01_data_prep.R”)
+
+    \#- source(“scripts/R/02_analysis.R”)
+
+Outputs appear in output/figures/ and output/tables/
+
+**Linux pipeline (detectEVE → taxonomy → trees → ENA)**
+
+Documentation: see docs/LinuxPipeline_README.md
+
+Run all (on Linux):
+
+- bash scripts/bash/core/01_create_envs.sh
+
+- bash scripts/bash/core/02_directories_and_paths.sh
+
+- bash scripts/bash/core/03_detectEVE_setup.sh
+
+- bash scripts/bash/core/04_single_genome.sh
+
+- bash scripts/bash/core/05_get_drosophilid_list.sh
+
+- bash scripts/bash/core/06_batch_detectEVE.sh
+
+\#then postprocess, taxonomy, phylo, ena (see
+docs/LinuxPipeline_README.md)
+
+**Repository structure**
+
+- data/raw/ — raw inputs (not tracked); add notes in data/raw/README.txt
+
+- data/processed/ — analysis‑ready data written by scripts
+
+- scripts/R/ — R scripts (00_setup.R, 01_data_prep.R, 02_analysis.R, …)
+
+- scripts/bash/ — Linux pipeline (core, postprocess, taxonomy, phylo,
+  ena)
+
+- output/figures/, output/tables/ — generated outputs
+
+- docs/ — extra docs: Setup_Recipe.md, LinuxPipeline_README.md,
+  RPipeline_README.md, etc.
+
+**Reproducibility**
+
+- Use here::here() instead of setwd()
+
+- Use renv::restore() on a new machine to install pinned package
+  versions
+
+- Linux tools are isolated in named conda/mamba environments
+
+**License and citation**
+
+Code: MIT (see LICENSE.md)
+
+Data: will be provided later
+
+DOI: will be provided later
+
+**Contact**
+
+Maintainer: Rashidatu Abdulazeez (<rabdulaz@ed.ac.uk>)
+
+Issues: GitHub Issues tab
