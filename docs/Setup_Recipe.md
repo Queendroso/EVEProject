@@ -173,3 +173,7 @@ use_git_config(scope="project").
 
 \- If you see selection menus from usethis (e.g., “Enter an item from
 the menu”), choose 3 for “Yup.”
+
+\- Ensure that README.Rmd and README.md are both staged together (and usually that README.md is freshly rendered from README.Rmd). knit to github_document everytime you make a change in README.Rmd
+
+
