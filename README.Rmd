@@ -1,15 +1,17 @@
 ---
 title: "EVEProject"
 output:
-  html_document:
-    df_print: paged
+  github_document:
 ---
 
 #### Global chunk options:
  - collapse/comment for nice printing on GitHub
  - eval = FALSE so chunks are shown but not executed (safe if files don't exist yet)
 
+```{r}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
+```
+
 
 #library(here)  # keep commented until needed
 

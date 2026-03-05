@@ -43,10 +43,11 @@ and phylogenetics, plus an R analysis scaffold and documentation.
 ### **Quick start**
 
 1.  Open the RStudio Project (.Rproj)
+2.  Restore exact package versions:#
 
-2.  Restore exact package versions:
-
-    renv::restore()
+``` r
+renv::restore()
+```
 
 3.  Put raw inputs in data/raw/ (see data/raw/README.txt)
 
